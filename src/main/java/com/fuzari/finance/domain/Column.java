@@ -14,6 +14,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.With;
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 @Table(name = "column")
@@ -33,6 +34,7 @@ public class Column {
   @jakarta.persistence.Column(nullable = false)
   private String topic;
 
-
+  @jakarta.persistence.Column(updatable = false)
+  @CreationTimestamp
   private LocalDateTime creation_date;
 }
