@@ -12,6 +12,12 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: none
+  flyway:
+    enabled: true
 
 server:
   port: 3000
+
+logging:
+  level:
+    com.fuzari: debug

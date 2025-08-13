@@ -16,7 +16,7 @@ import lombok.With;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
-@Table(name = "cell")
+@Table(name = "sheet_cell")
 @Data
 @AllArgsConstructor
 @Builder
