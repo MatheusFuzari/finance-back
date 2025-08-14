@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @Slf4j
 public class GlobalExceptionHandler {
 
+  // Request body validation
   @ExceptionHandler(MethodArgumentNotValidException.class)
   public ResponseEntity<DefaultErrorMessage> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
-    log.debug("Caiu aqui hein");
     var default_message = e.getBindingResult()
       .getAllErrors()
         .stream()
@@ -29,7 +29,30 @@ public class GlobalExceptionHandler {
         .collect(Collectors.joining(", "));
 
     var error = new DefaultErrorMessage(HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), default_message, OffsetDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
-    System.out.println("ALOOOOOO");
     return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+  }
+
+  @ExceptionHandler(NotFoundException.class)
+  public ResponseEntity<DefaultErrorMessage> handleNotFoundException(NotFoundException e) {
+    var error = new DefaultErrorMessage(
+        HttpStatus.NOT_FOUND.value(),
+        HttpStatus.NOT_FOUND.getReasonPhrase(),
+        e.getMessage(),
+        OffsetDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME)
+    );
+
+    return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+  }
+
+  @ExceptionHandler(UserAlreadyHaveWageException.class)
+  public ResponseEntity<DefaultErrorMessage> handleUserAlreadyHaveWageException(UserAlreadyHaveWageException e) {
+    var error = new DefaultErrorMessage(
+        HttpStatus.CONFLICT.value(),
+        HttpStatus.CONFLICT.getReasonPhrase(),
+        e.getMessage(),
+        OffsetDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME)
+    );
+
+    return new ResponseEntity<>(error, HttpStatus.CONFLICT);
   }
 }

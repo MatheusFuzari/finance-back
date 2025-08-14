@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/v1/users")
+@RequestMapping("/api/v1/users")
 @RequiredArgsConstructor
 public class UserController {
 
@@ -33,7 +33,7 @@ public class UserController {
   }
 
   @PostMapping
-  private ResponseEntity<UserGetResponse> getUsers(@RequestBody @Valid UserPostRequest body) {
+  private ResponseEntity<UserGetResponse> createUser(@RequestBody @Valid UserPostRequest body) {
     var user_to_save = MAPPER.userPostRequestToUser(body);
     var response = MAPPER.userToUserGetResponse(service.create(user_to_save));
 
