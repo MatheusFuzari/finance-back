@@ -29,7 +29,7 @@ public class Sheet {
 
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
-  private UUID sheet_id;
+  private UUID id;
 
   @ManyToOne(fetch = FetchType.LAZY, optional = false)
   private User user;

@@ -29,9 +29,9 @@ public class Wage {
 
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
-  private UUID wage_id;
+  private UUID id;
 
-  @OneToOne(fetch = FetchType.LAZY,optional = false, cascade = CascadeType.REMOVE)
+  @OneToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.REMOVE)
   @JoinColumn(name = "user_id", referencedColumnName = "id")
   private User user;
 

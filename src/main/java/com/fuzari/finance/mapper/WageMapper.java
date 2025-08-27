@@ -14,10 +14,10 @@ public interface WageMapper {
 
   WageGetResponse wageToWageGetResponse(Wage wage);
 
-  @Mapping(target = "user.user_id", source = "user_id")
+  @Mapping(target = "user.id", source = "user_id")
   Wage wagePostResponseToWage(WagePostRequest wagePostRequest, UUID user_id);
 
-  @Mapping(target = "user.user_id", source = "user_id")
+  @Mapping(target = "user.id", source = "user_id")
   Wage wagePutResponseToWage(WagePutRequest wagePutRequest, UUID user_id);
 
 }

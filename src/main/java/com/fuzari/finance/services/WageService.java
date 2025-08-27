@@ -22,14 +22,14 @@ public class WageService {
   }
 
   public Wage createUserWage(Wage wage_to_save) {
-    assertThatUserNotHaveWage(wage_to_save.getUser().getUser_id());
+    assertThatUserNotHaveWage(wage_to_save.getUser().getId());
     var response = this.repository.save(wage_to_save);
 
     return response;
   }
 
   public void updateUserWage(Wage wage_to_update) {
-    this.assertThatUserHasWage(wage_to_update.getUser().getUser_id());
+    this.assertThatUserHasWage(wage_to_update.getUser().getId());
     this.repository.save(wage_to_update);
   }
 

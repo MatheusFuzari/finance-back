@@ -27,7 +27,7 @@ public class User {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "id")
-  private UUID user_id;
+  private UUID id;
 
   @Column(nullable = false)
   private String name;

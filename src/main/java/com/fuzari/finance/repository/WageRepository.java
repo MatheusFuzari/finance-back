@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface WageRepository extends JpaRepository<Wage, UUID> {
 
-  @Query("SELECT w FROM Wage w RIGHT JOIN User u ON w.user = u.id WHERE u.id = ?1")
+  @Query("SELECT w FROM Wage w RIGHT JOIN User u ON w.user.id = u.id WHERE u.id = ?1")
   Optional<Wage> findWageByUserId(UUID userId);
 }

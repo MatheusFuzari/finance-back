@@ -26,7 +26,7 @@ public class Column {
 
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
-  private UUID column_id;
+  private UUID id;
 
   @ManyToOne(optional = false, fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
   private Sheet sheet;

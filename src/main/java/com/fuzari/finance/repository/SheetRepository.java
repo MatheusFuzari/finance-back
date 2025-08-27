@@ -11,6 +11,6 @@ public interface SheetRepository extends JpaRepository<Sheet, UUID> {
 
   List<Sheet> findAllByUserId(UUID userId);
 
-  @Query("SELECT s FROM Sheet s RIGHT JOIN User u ON u.id = s.user WHERE s.user.id = ?1")
+  @Query("SELECT s FROM Sheet s RIGHT JOIN User u ON u.id = s.user.id WHERE s.user.id = ?1")
   Optional<Sheet> findCurrentSheetByUserId(UUID userId);
 }

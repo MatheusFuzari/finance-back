@@ -7,6 +7,7 @@ import com.fuzari.finance.dtos.wage.request.WagePutRequest;
 import com.fuzari.finance.dtos.wage.response.WageGetResponse;
 import com.fuzari.finance.mapper.WageMapper;
 import com.fuzari.finance.services.WageService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/v1/user")
 @RequiredArgsConstructor
+@Tag(name = "Wage API", description = "Wage related endpoints")
 public class WageController {
   /*
    * TODO
