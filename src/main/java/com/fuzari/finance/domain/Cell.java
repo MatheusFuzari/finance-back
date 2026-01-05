@@ -12,6 +12,7 @@ import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.With;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -19,6 +20,7 @@ import org.hibernate.annotations.CreationTimestamp;
 @Table(name = "sheet_cell")
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 @With
 public class Cell {
@@ -26,11 +28,14 @@ public class Cell {
   @GeneratedValue(strategy = GenerationType.UUID)
   private UUID id;
 
-  @ManyToOne(fetch = FetchType.LAZY, optional = false)
-  private Row row;
+  private int y_loc;
+
+  private int x_loc;
+
+  private String value;
 
   @ManyToOne(fetch = FetchType.LAZY, optional = false)
-  private Column column;
+  private Sheet sheet;
 
   @jakarta.persistence.Column(updatable = false)
   @CreationTimestamp

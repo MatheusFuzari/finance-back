@@ -67,4 +67,16 @@ public class GlobalExceptionHandler {
 
     return new ResponseEntity<>(error, HttpStatus.CONFLICT);
   }
+
+  @ExceptionHandler(SheetAlreadyHaveCellInLocationException.class)
+  public ResponseEntity<DefaultErrorMessage> handleSheetAlreadyHaveCellInLocationException(SheetAlreadyHaveCellInLocationException e) {
+    var error = new DefaultErrorMessage(
+        HttpStatus.CONFLICT.value(),
+        HttpStatus.CONFLICT.getReasonPhrase(),
+        e.getMessage(),
+        OffsetDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME)
+    );
+
+    return new ResponseEntity<>(error, HttpStatus.CONFLICT);
+  }
 }

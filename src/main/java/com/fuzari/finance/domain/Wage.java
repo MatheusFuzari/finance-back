@@ -40,10 +40,17 @@ public class Wage {
 
   @Column(nullable = false)
   private String wage_date;
-  private String wage_advance_date;
+  @Column(name = "wage_advance_date")
+  private String wage_advance_date = null;
 
-  private BigDecimal meal_voucher;
-  private BigDecimal health_benefits;
-  private BigDecimal transport_benefits;
-  private BigDecimal education_benefits;
+  @Column(name = "meal_voucher")
+  private BigDecimal meal_voucher = null;
+  @Column(name = "health_benefits")
+  private BigDecimal health_benefits = null;
+  @Column(name = "education_benefits")
+  private BigDecimal education_benefits = null;
+  @Column(name = "transport_benefits")
+  private BigDecimal transport_benefits = null;
+  @Column(name = "gym_pass")
+  private BigDecimal gym_pass = null;
 }

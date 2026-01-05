@@ -1,7 +1,5 @@
 package com.fuzari.finance.controller;
 
-import com.fuzari.finance.domain.User;
-import com.fuzari.finance.domain.Wage;
 import com.fuzari.finance.dtos.wage.request.WagePostRequest;
 import com.fuzari.finance.dtos.wage.request.WagePutRequest;
 import com.fuzari.finance.dtos.wage.response.WageGetResponse;
@@ -27,9 +25,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class WageController {
   /*
    * TODO
-   * Get User data from logged user by UserDetails impl
-   * So, the endpoint should look like: user/wage after the change
-   * Because we're getting only the logged user info, nothing more, and safer
+   *
+   * Change Wage endpoints with '/{id}/', in order to get the user's id from logged information
+   * by implementing UserDetails Interface and Spring Security Login
+   * Making the Wage's endpoints more consistent and secure.
    *
    * */
 

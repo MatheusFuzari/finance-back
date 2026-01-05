@@ -34,7 +34,8 @@ public class User {
 
   @Column(nullable = false, unique = true)
   private String email;
-  private String google_id;
+  @Column(name = "google_id")
+  private String google_id  = null;
 
   @Column(nullable = false)
   private String password;

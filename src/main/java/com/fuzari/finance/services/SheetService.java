@@ -2,6 +2,7 @@ package com.fuzari.finance.services;
 
 import com.fuzari.exceptions.NotFoundException;
 import com.fuzari.finance.domain.Sheet;
+import com.fuzari.finance.domain.User;
 import com.fuzari.finance.repository.SheetRepository;
 import java.util.List;
 import java.util.UUID;
@@ -24,7 +25,14 @@ public class SheetService {
      * If spreadsheet don't exist, generate a new one
      * Following the boilerplate of the previous, if its the first sheet use the standard columns (described in Whimsical)
      * */
-    return repository.findCurrentSheetByUserId(user_id).orElseThrow(
-        () -> new NotFoundException("No current sheet available"));
+
+    return repository.findCurrentSheetByUserId(user_id).orElse(createNewSheet(user_id));
+  }
+
+  public Sheet createNewSheet(UUID user_id) {
+    var user = User.builder().id(user_id).build();
+
+    var new_sheet = Sheet.builder().user(user).build();
+    return repository.save(new_sheet);
   }
 }

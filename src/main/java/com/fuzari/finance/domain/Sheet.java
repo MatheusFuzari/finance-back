@@ -34,6 +34,12 @@ public class Sheet {
   @ManyToOne(fetch = FetchType.LAZY, optional = false)
   private User user;
 
+  @Column(name = "columns")
+  private int columns = 5;
+
+  @Column(name = "rows")
+  private int rows = 2;
+
   @CreationTimestamp
   @Column(updatable = false)
   private LocalDate creation_date;

@@ -5,7 +5,6 @@ import com.fuzari.finance.dtos.user.request.UserPostRequest;
 import com.fuzari.finance.dtos.user.response.UserGetResponse;
 import java.util.List;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants.ComponentModel;
 
 @Mapper(componentModel = ComponentModel.SPRING)
