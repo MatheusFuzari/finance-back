@@ -1,8 +1,7 @@
 package com.fuzari.finance.services;
 
-import com.fuzari.exceptions.NotFoundException;
-import com.fuzari.exceptions.UserAlreadyHaveWageException;
-import com.fuzari.finance.domain.User;
+import com.fuzari.finance.exceptions.NotFoundException;
+import com.fuzari.finance.exceptions.UserAlreadyHaveWageException;
 import com.fuzari.finance.domain.Wage;
 import com.fuzari.finance.repository.WageRepository;
 import java.util.UUID;

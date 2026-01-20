@@ -1,6 +1,6 @@
 package com.fuzari.finance.services;
 
-import com.fuzari.exceptions.SheetAlreadyHaveCellInLocationException;
+import com.fuzari.finance.exceptions.SheetAlreadyHaveCellInLocationException;
 import com.fuzari.finance.domain.Cell;
 import com.fuzari.finance.repository.CellRepository;
 import java.util.List;
@@ -26,6 +26,12 @@ public class CellService {
     assertCellIsNotInLocationBySheet(x_loc, y_loc, sheet_id);
 
     return cellRepository.save(cell_to_save);
+  }
+
+  public List<Cell> createCells(List<Cell> cells_to_save) {
+    var saved_cells = cells_to_save.stream().map(this::createCell).toList();
+
+    return saved_cells;
   }
 
   public void assertCellIsNotInLocationBySheet(int x_loc, int y_loc, UUID sheet_id) {

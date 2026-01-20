@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -34,9 +35,13 @@ public class User {
 
   @Column(nullable = false, unique = true)
   private String email;
+
   @Column(name = "google_id")
   private String google_id  = null;
 
   @Column(nullable = false)
   private String password;
+
+  @Column(nullable = false, columnDefinition = "text[]")
+  private List<String> roles;
 }

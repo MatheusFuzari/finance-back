@@ -1,4 +1,4 @@
-package com.fuzari.exceptions;
+package com.fuzari.finance.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;

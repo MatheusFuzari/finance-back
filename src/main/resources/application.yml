@@ -21,3 +21,8 @@ server:
 logging:
   level:
     com.fuzari: debug
+
+finance:
+  jwt-secret-key-value: ${JWT_SECRET}
+  jwt-header: Authorization
+  security-allowed-origin: http://localhost:4200

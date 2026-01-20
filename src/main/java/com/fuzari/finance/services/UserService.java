@@ -1,13 +1,12 @@
 package com.fuzari.finance.services;
 
-import com.fuzari.exceptions.EmailAlreadyInUseException;
+import com.fuzari.finance.exceptions.EmailAlreadyInUseException;
 import com.fuzari.finance.domain.User;
 import com.fuzari.finance.repository.UserRepository;
 import java.util.List;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 @Service
 @RequiredArgsConstructor

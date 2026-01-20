@@ -1,6 +1,6 @@
 package com.fuzari.finance.controller;
 
-import com.fuzari.exceptions.DefaultErrorMessage;
+import com.fuzari.finance.exceptions.DefaultErrorMessage;
 import com.fuzari.finance.dtos.user.request.UserPostRequest;
 import com.fuzari.finance.dtos.user.response.UserGetResponse;
 import com.fuzari.finance.mapper.UserMapper;

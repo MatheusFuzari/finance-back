@@ -1,6 +1,5 @@
-package com.fuzari.exceptions;
+package com.fuzari.finance.exceptions;
 
-import jakarta.servlet.http.HttpServletRequest;
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;

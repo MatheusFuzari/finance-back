@@ -1,6 +1,5 @@
 package com.fuzari.finance.services;
 
-import com.fuzari.exceptions.NotFoundException;
 import com.fuzari.finance.domain.Sheet;
 import com.fuzari.finance.domain.User;
 import com.fuzari.finance.repository.SheetRepository;
@@ -34,5 +33,21 @@ public class SheetService {
 
     var new_sheet = Sheet.builder().user(user).build();
     return repository.save(new_sheet);
+  }
+
+  public void addRow() {
+
+  }
+
+  public void addCol() {
+
+  }
+
+  public void removeRow() {
+
+  }
+
+  public void removeCol() {
+
   }
 }

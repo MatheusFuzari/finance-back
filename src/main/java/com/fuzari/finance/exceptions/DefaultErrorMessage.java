@@ -1,4 +1,4 @@
-package com.fuzari.exceptions;
+package com.fuzari.finance.exceptions;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
