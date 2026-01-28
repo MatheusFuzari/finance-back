@@ -13,49 +13,49 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/sheet")
+@RequestMapping("/api/sheet")
 @Tag(name = "Sheet API", description = "Sheet related endpoints")
 public class SheetController {
 
   private final SheetService service;
 
-  @GetMapping()
-  public ResponseEntity<?> getUserCurrentSheet() {
-    var sheet = service.getMySheets();
-  }
-
-  @GetMapping()
-  public ResponseEntity<?> getSheetDetails() {
-
-  }
-
-  @GetMapping()
-  public ResponseEntity<List<?>> getUsersSheetHistory() {
-
-  }
-
-  @PostMapping()
-  public ResponseEntity<?> createNewSheet() {
-
-  }
-
-  @PutMapping()
-  public ResponseEntity<?> addRow() {
-
-  }
-
-  @PutMapping()
-  public ResponseEntity<?> addCol() {
-
-  }
-
-  @PutMapping()
-  public ResponseEntity<?> removeRow() {
-
-  }
-
-  @PutMapping()
-  public ResponseEntity<?> removeCol() {
-
-  }
+//  @GetMapping()
+//  public ResponseEntity<?> getUserCurrentSheet() {
+//    var sheet = service.getMySheets();
+//  }
+//
+//  @GetMapping()
+//  public ResponseEntity<?> getSheetDetails() {
+//
+//  }
+//
+//  @GetMapping()
+//  public ResponseEntity<List<?>> getUsersSheetHistory() {
+//
+//  }
+//
+//  @PostMapping()
+//  public ResponseEntity<?> createNewSheet() {
+//
+//  }
+//
+//  @PutMapping()
+//  public ResponseEntity<?> addRow() {
+//
+//  }
+//
+//  @PutMapping()
+//  public ResponseEntity<?> addCol() {
+//
+//  }
+//
+//  @PutMapping()
+//  public ResponseEntity<?> removeRow() {
+//
+//  }
+//
+//  @PutMapping()
+//  public ResponseEntity<?> removeCol() {
+//
+//  }
 }

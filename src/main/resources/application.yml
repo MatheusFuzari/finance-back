@@ -23,6 +23,5 @@ logging:
     com.fuzari: debug
 
 finance:
-  jwt-secret-key-value: ${JWT_SECRET}
-  jwt-header: Authorization
-  security-allowed-origin: http://localhost:4200
+  private-key: classpath:private.pem
+  public-key: classpath:public.pem

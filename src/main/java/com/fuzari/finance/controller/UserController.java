@@ -1,7 +1,7 @@
 package com.fuzari.finance.controller;
 
+import com.fuzari.finance.dtos.auth.request.UserRegisterRequest;
 import com.fuzari.finance.exceptions.DefaultErrorMessage;
-import com.fuzari.finance.dtos.user.request.UserPostRequest;
 import com.fuzari.finance.dtos.user.response.UserGetResponse;
 import com.fuzari.finance.mapper.UserMapper;
 import com.fuzari.finance.services.UserService;
@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/users")
+@RequestMapping("/api/users")
 @RequiredArgsConstructor
 @Tag(name = "User API", description = "User related endpoints")
 public class UserController {
@@ -71,7 +71,7 @@ public class UserController {
           )
       }
   )
-  private ResponseEntity<UserGetResponse> createUser(@RequestBody @Valid UserPostRequest body) {
+  private ResponseEntity<UserGetResponse> createUser(@RequestBody @Valid UserRegisterRequest body) {
     var user_to_save = MAPPER.userPostRequestToUser(body);
     var response = MAPPER.userToUserGetResponse(service.create(user_to_save));
 

@@ -20,6 +20,6 @@ public class UserGetResponse {
   private String name;
   @Schema(description = "User's e-mail", example = "george.lucas@email.com")
   private String email;
-  @Schema(description = "User's Google SSO ID", example = "xxx-yyy-zzz")
-  private String google_id;
+//  @Schema(description = "User's Google SSO ID", example = "xxx-yyy-zzz")
+//  private String google_id;
 }

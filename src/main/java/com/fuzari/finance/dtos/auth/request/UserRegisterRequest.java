@@ -1,4 +1,4 @@
-package com.fuzari.finance.dtos.user.request;
+package com.fuzari.finance.dtos.auth.request;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;
@@ -14,7 +14,7 @@ import lombok.With;
 @With
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserPostRequest {
+public class UserRegisterRequest {
   @NotBlank(message = "The field 'name' can't be null or empty")
   @Schema(description = "User's name", example = "George Lucas")
   private String name;
@@ -23,9 +23,6 @@ public class UserPostRequest {
   @Email(regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}", message = "The field 'email' isn't in e-mail standard")
   @Schema(description = "User's e-mail", example = "george.lucas@email.com")
   private String email;
-
-  @Schema(description = "User's Google SSO ID", example = "xxx-yyy-zzz")
-  private String google_id;
 
   @NotBlank(message = "The field 'password' can't be null or empty")
   @Schema(description = "User's password", example = "strongpassword123")

@@ -41,7 +41,4 @@ public class User {
 
   @Column(nullable = false)
   private String password;
-
-  @Column(nullable = false, columnDefinition = "text[]")
-  private List<String> roles;
 }

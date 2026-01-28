@@ -1,7 +1,8 @@
 package com.fuzari.finance.mapper;
 
 import com.fuzari.finance.domain.User;
-import com.fuzari.finance.dtos.user.request.UserPostRequest;
+import com.fuzari.finance.dtos.auth.request.UserLoginRequest;
+import com.fuzari.finance.dtos.auth.request.UserRegisterRequest;
 import com.fuzari.finance.dtos.user.response.UserGetResponse;
 import java.util.List;
 import org.mapstruct.Mapper;
@@ -16,5 +17,7 @@ public interface UserMapper {
 
   User userGetResponseToUser(UserGetResponse userGetResponse);
 
-  User userPostRequestToUser(UserPostRequest userPostRequest);
+  User userPostRequestToUser(UserRegisterRequest userRegisterRequest);
+
+  User userLoginRequestToUser(UserLoginRequest userLoginRequest);
 }
