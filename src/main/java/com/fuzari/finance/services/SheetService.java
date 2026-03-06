@@ -2,10 +2,13 @@ package com.fuzari.finance.services;
 
 import com.fuzari.finance.domain.Sheet;
 import com.fuzari.finance.domain.User;
+import com.fuzari.finance.exceptions.NotFoundException;
 import com.fuzari.finance.repository.SheetRepository;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,12 +22,6 @@ public class SheetService {
   }
 
   public Sheet getMyCurrentSheet(UUID user_id) {
-    /*
-     * TODO
-     * If spreadsheet don't exist, generate a new one
-     * Following the boilerplate of the previous, if its the first sheet use the standard columns (described in Whimsical)
-     * */
-
     return repository.findCurrentSheetByUserId(user_id).orElse(createNewSheet(user_id));
   }
 
@@ -35,19 +32,19 @@ public class SheetService {
     return repository.save(new_sheet);
   }
 
-  public void addRow() {
+  public void disableSheetById(UUID sheet_id){
+    var sheet_to_update = repository.findById(sheet_id).orElseThrow(() -> new NotFoundException(
+        "Sheet not found with id %s".formatted(sheet_id.toString())));
 
+    sheet_to_update.setFinished_at(LocalDate.now());
+    repository.save(sheet_to_update);
   }
 
-  public void addCol() {
+  public boolean checkSheetIsExpired() {
+    var day_number = LocalDate.now().getDayOfWeek().getValue();
 
-  }
+    var expiredSheet = repository.checkIfSheetIsExpired(day_number);
 
-  public void removeRow() {
-
-  }
-
-  public void removeCol() {
-
+    return expiredSheet.isPresent();
   }
 }

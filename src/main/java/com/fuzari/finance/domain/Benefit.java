@@ -9,36 +9,31 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import java.time.LocalDate;
+import java.math.BigDecimal;
 import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.With;
-import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.cglib.core.Local;
 
-@Table(name = "sheet")
+@Table(name = "benefit")
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@With
-public class Sheet {
+public class Benefit {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.UUID)
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private UUID id;
 
+  private String type;
+  @Column(precision = 10, scale = 2)
+  private BigDecimal amount;
+
   @ManyToOne(fetch = FetchType.LAZY, optional = false)
-  @JoinColumn(name = "user_id", updatable = false, nullable = false)
+  @JoinColumn(name = "user_id", nullable = false)
   private User user;
 
-  @CreationTimestamp
-  @Column(updatable = false)
-  private LocalDate created_at;
-
-  private LocalDate finished_at;
 }

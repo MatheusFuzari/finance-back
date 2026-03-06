@@ -2,56 +2,46 @@ package com.fuzari.finance.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.List;
 import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.With;
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
-@Entity
-@Table(name = "user_account")
+@Table(name = "topic_sheet")
 @Data
-@With
-@Builder
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+@Builder
+public class TopicSheet {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name = "id")
   private UUID id;
 
-  @Column(nullable = false)
-  private String name;
+  @ManyToOne(fetch = FetchType.LAZY, optional = false)
+  @JoinColumn(name = "topic_id", updatable = false, nullable = false)
+  private Topic topic;
 
-  @Column(nullable = false, unique = true)
-  private String email;
+  @ManyToOne(fetch = FetchType.LAZY, optional = false)
+  @JoinColumn(name="sheet_id", updatable = false, nullable = false)
+  private Sheet sheet;
 
-  @Column(nullable = false)
-  private String password;
-
-  @Column(nullable = true)
-  private BigDecimal wage;
-
-  @Column(nullable = true)
-  private Integer wage_date;
-
-  @Column(nullable = true)
-  private Integer wage_advance_date;
+  @ColumnDefault("false")
+  private Boolean applied_to_all;
 
   @CreationTimestamp
   @Column(updatable = false)
-  private LocalDateTime created_at;
+  private LocalDate created_at;
 }
